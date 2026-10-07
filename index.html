@@ -8,7 +8,7 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600..900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="styles.css">
 </head>
@@ -28,103 +28,114 @@
         <li><a href="/om-mig">Om mig</a></li>
         <li><a href="/projekt">Projekt</a></li>
       </ul>
-      <a class="btn btn--gul header__cta" href="#kontakt">Kontakta mig</a>
+      <a class="btn btn--bla header__cta" href="#kontakt">Kontakta mig</a>
     </nav>
   </header>
 
   <main id="innehall">
 
-    <section class="hero" aria-labelledby="hero-rubrik">
-      <img class="hero__bild" src="images/hero-clouds.jpg" alt="" aria-hidden="true">
-      <div class="hero__innehall">
-        <h1 class="hero__titel" id="hero-rubrik">
-          <span class="hero__titel-rad1">Fridas</span>
-          <span class="hero__titel-rad2">Portfolio.</span>
-        </h1>
-        <a class="hero__pil" href="#intro" aria-label="Skrolla till introduktionen">
-          <svg width="34" height="80" viewBox="0 0 34 80" fill="none" aria-hidden="true">
-            <path d="M17 2V70" stroke="currentColor" stroke-width="4" stroke-linecap="round"/>
-            <path d="M4 57L17 72L30 57" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-        </a>
+    <!-- ============ Hero ============ -->
+    <section class="hero" aria-label="Kliv in i min kreativa värld">
+      <img class="hero__bild" src="images/hero.jpg" alt="Frida i solglasögon och sommarklänning på en gata full av uteserveringar.">
+
+      <p class="hero__klistermarken">
+        <span class="klistermarke klistermarke--bla">Kliv in i min</span>
+        <span class="klistermarke klistermarke--orange">kreativa värld</span>
+      </p>
+
+      <div class="band" aria-hidden="true">
+        <svg class="band__svg" viewBox="0 0 1440 200" preserveAspectRatio="xMidYMid slice">
+          <path class="band__form" d="M0,58 C240,18 480,18 720,58 C960,98 1200,98 1440,58 L1440,150 C1200,190 960,190 720,150 C480,110 240,110 0,150 Z"/>
+          <path id="bandBana" d="M-1440,114 C-1200,74 -960,74 -720,114 C-480,154 -240,154 0,114 C240,74 480,74 720,114 C960,154 1200,154 1440,114 C1680,74 1920,74 2160,114 C2400,154 2640,154 2880,114 C3120,74 3360,74 3600,114 C3840,154 4080,154 4320,114" fill="none"/>
+          <text class="band__text"><textPath href="#bandBana" id="bandText">Grafisk design ● Webbutveckling ● Betald annonsering ● SEO ● Projektledning ● </textPath></text>
+        </svg>
       </div>
+      <p class="visuellt-dold">Grafisk design, webbutveckling, betald annonsering, SEO och projektledning.</p>
     </section>
 
-    <section class="intro" id="intro">
+    <!-- ============ Välkommen ============ -->
+    <section class="valkommen" aria-labelledby="valkommen-rubrik">
       <div class="wrap">
-        <h2 class="intro__rubrik">Kliv in i min <span class="accent">kreativa värld</span>...</h2>
+        <h1 class="valkommen__rubrik" id="valkommen-rubrik">
+          <span class="valkommen__rubrik-liten">Välkommen till min</span>
+          <span class="valkommen__rubrik-stor">Portfolio</span>
+        </h1>
 
-        <div class="intro__text">
-          <p>Jag jobbar som digital innehållsproducent på en reklambyrå, där jag projektleder och skapar allt från webb och SEO till grafisk design och sociala medier för våra kunder.</p>
-          <p>Min väg hit har gått genom en kandidat i webbredaktörskap, en magister i IT och management och ett halvår som junior frontendutvecklare. Vid sidan av har jag också frilansat och gjort allt från logotyper och posters till bandmerch.</p>
-          <p>Det jag tycker allra mest om är kombinationen av det kreativa och det digitala. Jag brinner för att skapa innehåll som inte bara är snyggt, utan också lätt att förstå och enkelt att använda. Det kan handla om allt från en lättläst text till en genomtänkt navigation eller hur en webbplats är uppbyggd.</p>
-          <p>Men färg och form har varit min grej sedan jag var liten. Och även om jag tycker om många delar av det jag gör, är det nog fortfarande när jag får skapa som själen sjunger som mest.</p>
-        </div>
+        <div class="valkommen__grid">
+          <figure class="valkommen__bild">
+            <img src="images/frida-selfie.jpg" alt="Frida i glasögon och grå skjorta tittar in i kameran.">
+          </figure>
 
-        <div class="intro__botten">
-          <a class="btn btn--gul" href="/om-mig">Läs mer om mig</a>
-
-          <div class="intro__pekare">
-            <span class="intro__pekare-text">Företag jag jobbat med</span>
-            <svg class="intro__pekare-pil" width="120" height="70" viewBox="0 0 120 70" fill="none" aria-hidden="true">
-              <path d="M115 5C112 32 92 52 62 58" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
-              <path d="M74 44L58 59L74 68" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
+          <div class="valkommen__text">
+            <p>Jag jobbar som digital innehållsproducent på en reklambyrå, där jag projektleder och skapar allt från webb och SEO till grafisk design och sociala medier för våra kunder.</p>
+            <p>Min väg hit har gått genom en kandidat i webbredaktörskap, en magister i IT och management och ett halvår som junior frontendutvecklare. Vid sidan av har jag frilansat och gjort allt från logotyper och posters till bandmerch.</p>
+            <p>Det jag tycker allra mest om är kombinationen av det kreativa och det digitala. Jag brinner för att skapa innehåll som inte bara är snyggt, utan också lätt att förstå och enkelt att använda, oavsett om det handlar om text, navigation eller hur en webbplats är uppbyggd.</p>
+            <p>Färg och form har varit min grej sedan jag var liten, och även om jag tycker om många delar av det jag gör är det nog fortfarande när jag får skapa som själen sjunger som mest.</p>
           </div>
         </div>
+
+        <div class="knapprad">
+          <a class="btn btn--gul" href="/om-mig">Om mig</a>
+          <a class="btn btn--bla" href="/projekt">Projekt</a>
+        </div>
       </div>
     </section>
 
-    <section class="logos" aria-label="Företag jag jobbat med">
-      <div class="logos__track" id="logosTrack">
-        <!-- Lägg till en logotyp genom att kopiera en <li> här. Resten sköter script.js. -->
-        <ul class="logos__grupp" id="logosGrupp">
-          <li><img class="logo logo--ymer" src="images/logo-ymer.png" alt="Ymer Production" width="578" height="140"></li>
-          <li><img class="logo logo--egirs" src="images/logo-egirs.png" alt="Egirs Fastigheter" width="213" height="62"></li>
-          <li><img class="logo logo--falkenberg" src="images/logo-falkenberg.png" alt="Falkenberg Strandbad" width="655" height="140"></li>
-          <li><img class="logo logo--vimab" src="images/logo-vimab.png" alt="VIMAB Group" width="457" height="140"></li>
-          <li><img class="logo logo--pjp" src="images/logo-pjp.png" alt="PJP Piping" width="406" height="140"></li>
-          <li><img class="logo logo--boxholmshus" src="images/logo-boxholmshus.png" alt="Boxholmshus" width="297" height="140"></li>
-          <li><img class="logo logo--mve" src="images/logo-mve.png" alt="MVE Solel &amp; Värmepumpar" width="406" height="140"></li>
-          <li><img class="logo logo--vim" src="images/logo-vim.png" alt="VIM Energy Systems AB" width="343" height="120"></li>
-          <li><img class="logo logo--legotec" src="images/logo-legotec.png" alt="LegoTec AB" width="487" height="140"></li>
-          <li><img class="logo logo--nordiskyta" src="images/logo-nordiskyta.png" alt="Måleri-Hantverkarna, Nordisk Yta" width="493" height="140"></li>
-          <li><img class="logo logo--wexer" src="images/logo-wexer.png" alt="Wexer" width="803" height="140"></li>
-          <li><img class="logo logo--larslap" src="images/logo-larslap.png" alt="LarsLap" width="278" height="120"></li>
-        </ul>
-      </div>
-    </section>
+    <!-- ============ Tjänster ============ -->
+    <section class="tjanster" aria-labelledby="tjanster-rubrik">
+      <h2 class="tjanster__rubrik" id="tjanster-rubrik">Tjänster</h2>
 
-    <section class="kompetens" aria-labelledby="kompetens-rubrik">
-      <h2 class="visuellt-dold" id="kompetens-rubrik">Det här kan jag hjälpa dig med</h2>
-      <div class="wrap kompetens__grid">
+      <div class="wrap tjanster__lista">
 
-        <figure class="kompetens__portratt">
-          <img src="images/portratt.jpg" alt="Frida sitter i en fåtölj och ler mot kameran.">
-        </figure>
-
-        <ul class="kort">
-          <li class="kort__item">
-            <h3 class="kort__rubrik">Grafisk design</h3>
+        <article class="tjanst tjanst--gul">
+          <div class="tjanst__text">
+            <h3 class="tjanst__rubrik">Grafisk design</h3>
             <p>Jag älskar design som tar plats, sticker ut och vågar vara något annat än snyggt och lagom. Med färglära och visuell hierarki i bagaget gillar jag att förstå vad som får ett öga att fastna. Jag jobbar helst i Adobe, men trivs lika bra i Figma och Canva. Allra roligast är det när en kund vågar gå hela vägen med en idé.</p>
-          </li>
-          <li class="kort__item">
-            <h3 class="kort__rubrik">Webbutveckling</h3>
-            <p>Med en kandidat i webbredaktörskap och erfarenhet som junior frontendutvecklare jobbar jag både med WordPress och kodar från grunden. Jag har också kunskaper inom UX och UI, och brinner för att skapa webbplatser som är snygga, enkla att använda och tillgängliga.</p>
-          </li>
-          <li class="kort__item">
-            <h3 class="kort__rubrik">Marknadsföring<br>&amp; Sociala medier</h3>
-            <p>Jag jobbar med kampanjer, annonser, sociala medier och publiceringsplaner, ofta från första kundmöte till uppföljning. Jag annonserar i Meta, Google Ads och LinkedIn och skapar mycket av innehållet själv, så att budskap och form hänger ihop.</p>
-          </li>
-          <li class="kort__item">
-            <h3 class="kort__rubrik">SEO</h3>
-            <p>Jag jobbar med nyckelordsanalys, teknisk SEO och texter som både Google och människor förstår, med verktyg som Semrush och Google Search Console. För mig ska en webbplats inte bara vara snygg, den ska också gå att hitta.</p>
-          </li>
-        </ul>
-      </div>
+          </div>
+          <div class="tjanst__media">
+            <img src="images/grafisk-ymer.jpg" alt="Inbjudan för Ymer Production: Träffa Dan på EuroExpo i Örebro." width="1200" height="630" loading="lazy">
+          </div>
+        </article>
 
-      <div class="kompetens__cta">
-        <a class="btn btn--vinrod" href="/projekt">Projekt</a>
+        <article class="tjanst tjanst--bla">
+          <div class="tjanst__text">
+            <h3 class="tjanst__rubrik">Webbutveckling<br>&amp; SEO</h3>
+            <p>Med en kandidat i webbredaktörskap och erfarenhet som junior frontendutvecklare arbetar jag både i WordPress och med kod från grunden. Jag har även kunskaper inom UX, UI och SEO och gillar att skapa webbplatser som är snygga, enkla att använda och lätta att hitta.</p>
+          </div>
+          <div class="tjanst__media">
+            <img src="images/webb-egirs.jpg" alt="Startsidan på Egirs Fastigheters webbplats: Lägenheter och lokaler i Mjölby och Motala." width="1200" height="630" loading="lazy">
+          </div>
+        </article>
+
+        <article class="tjanst tjanst--orange">
+          <div class="tjanst__text">
+            <h3 class="tjanst__rubrik">Marknadsföring<br>&amp; sociala medier</h3>
+            <p>Jag jobbar med kampanjer, annonser, sociala medier och publiceringsplaner, ofta från första kundmöte till uppföljning. Jag annonserar i Meta, Google Ads och LinkedIn och skapar mycket av innehållet själv, så att budskap och form hänger ihop.</p>
+          </div>
+          <div class="tjanst__media tjanst__media--par">
+            <img src="images/some-maleri.jpg" alt="Inlägg för Måleri-Hantverkarna: Dags att måla om hemma?" width="600" height="630" loading="lazy">
+            <img src="images/some-hargassner.jpg" alt="Inlägg för Hargassner: Ved klassas som förnybar energi i EU:s regelverk." width="600" height="630" loading="lazy">
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- ============ Vidare ============ -->
+    <section class="vidare" aria-label="Läs vidare">
+      <div class="wrap vidare__grid">
+        <div class="vidare__kort vidare__kort--gul">
+          <h2 class="vidare__rubrik">Vill du veta mer om mig?</h2>
+          <a class="btn btn--bla" href="/om-mig">Om mig</a>
+        </div>
+        <div class="vidare__kort vidare__kort--orange">
+          <h2 class="vidare__rubrik">Titta på vad jag skapat till andra företag</h2>
+          <a class="btn btn--gul" href="/projekt">Projekt</a>
+        </div>
+        <div class="vidare__kort vidare__kort--bla">
+          <h2 class="vidare__rubrik">Redo att snacka?</h2>
+          <a class="btn btn--orange" href="#kontakt">Kontakt</a>
+        </div>
       </div>
     </section>
 
@@ -136,7 +147,6 @@
 
       <nav class="footer__nav" aria-label="Sidfotsmeny">
         <ul>
-          <li><a href="/">Hem</a></li>
           <li><a href="/om-mig">Om mig</a></li>
           <li><a href="/projekt">Projekt</a></li>
           <li><a href="#kontakt">Kontakt</a></li>
