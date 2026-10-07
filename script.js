@@ -33,68 +33,48 @@
     });
   }
 
-  /* ---- Logotypbandet: klona logotyperna så rullningen aldrig glappar ---- */
-  var band = document.querySelector(".logos");
-  var track = document.getElementById("logosTrack");
-  var grupp = document.getElementById("logosGrupp");
+  /* ---- Det vågiga bandet: texten rullar längs vågen ---- */
+  var bandText = document.getElementById("bandText");
   var mindreRorelse = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-  function byggBand() {
-    if (!band || !track || !grupp || mindreRorelse) return;
+  function startaBand() {
+    if (!bandText) return;
 
-    /* Rensa tidigare kloner */
-    Array.prototype.slice.call(track.querySelectorAll("[data-klon]")).forEach(function (el) {
-      el.remove();
-    });
+    /* Upprepa frasen så att den alltid täcker den synliga delen av vågen.
+       Texten får aldrig sticka utanför banan, då ritar webbläsaren
+       överblivna tecken i ett hörn. */
+    var fras = bandText.textContent;
+    bandText.textContent = fras;
+    var frasBredd = bandText.getComputedTextLength();
+    var banLangd = document.getElementById("bandBana").getTotalLength();
+    if (!frasBredd) return;
+    /* Banan går från x -1440 till 4320, så den synliga delen (x 0–1440)
+       börjar en fjärdedel in och slutar halvvägs. */
+    var synligStart = banLangd / 4;
+    var antal = Math.ceil(synligStart / frasBredd) + 1;
+    bandText.textContent = new Array(antal + 1).join(fras);
 
-    var gruppBredd = grupp.getBoundingClientRect().width;
-    if (!gruppBredd) return;
-
-    /* Klona tills spåret är minst dubbelt så brett som bandet */
-    var mal = band.getBoundingClientRect().width * 2 + gruppBredd;
-    var antal = Math.max(1, Math.ceil(mal / gruppBredd) - 1);
-
-    for (var i = 0; i < antal; i++) {
-      var klon = grupp.cloneNode(true);
-      klon.removeAttribute("id");
-      klon.setAttribute("aria-hidden", "true");
-      klon.setAttribute("data-klon", "");
-      klon.querySelectorAll("img").forEach(function (img) {
-        img.setAttribute("alt", "");
-      });
-      track.appendChild(klon);
+    /* Texten börjar precis vid bildkanten och rullar en frasbredd åt
+       vänster innan den hoppar tillbaka, utan att det syns. */
+    if (mindreRorelse) {
+      bandText.setAttribute("startOffset", synligStart);
+      return;
     }
 
-    /* Konstant hastighet oavsett hur många logotyper som ligger i bandet */
-    track.style.setProperty("--grupp-bredd", gruppBredd + "px");
-    track.style.setProperty("--tid", gruppBredd / 55 + "s");
+    var hastighet = 0.05; /* enheter per millisekund */
+    var forsta = null;
+    function steg(tid) {
+      if (forsta === null) forsta = tid;
+      var forskjutning = ((tid - forsta) * hastighet) % frasBredd;
+      bandText.setAttribute("startOffset", synligStart - forskjutning);
+      requestAnimationFrame(steg);
+    }
+    requestAnimationFrame(steg);
   }
 
-  if (document.readyState === "complete") {
-    byggBand();
+  if (document.fonts && document.fonts.ready) {
+    document.fonts.ready.then(startaBand);
   } else {
-    window.addEventListener("load", byggBand);
-  }
-
-  var timer;
-  window.addEventListener("resize", function () {
-    clearTimeout(timer);
-    timer = setTimeout(byggBand, 250);
-  });
-
-  /* ---- Headern får bakgrund när man skrollat förbi hero ---- */
-  var header = document.getElementById("header");
-  var hero = document.querySelector(".hero");
-
-  if (header && hero && "IntersectionObserver" in window) {
-    var observer = new IntersectionObserver(
-      function (entries) {
-        entries.forEach(function (entry) {
-          header.classList.toggle("header--fast", !entry.isIntersecting);
-        });
-      },
-      { rootMargin: "-80px 0px 0px 0px", threshold: 0 }
-    );
-    observer.observe(hero);
+    window.addEventListener("load", startaBand);
   }
 })();
