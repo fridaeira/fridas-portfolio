@@ -48,10 +48,10 @@
     var frasBredd = bandText.getComputedTextLength();
     var banLangd = document.getElementById("bandBana").getTotalLength();
     if (!frasBredd) return;
-    /* Banan går från x -1440 till 4320, så den synliga delen (x 0–1440)
-       börjar en fjärdedel in och slutar halvvägs. */
-    var synligStart = banLangd / 4;
-    var antal = Math.ceil(synligStart / frasBredd) + 1;
+    /* Banan går från x -2880 till 5760, så den synliga delen (x 0–1440)
+       börjar en tredjedel in och är en sjättedel lång. */
+    var synligStart = banLangd / 3;
+    var antal = Math.ceil(banLangd / 6 / frasBredd) + 1;
     bandText.textContent = new Array(antal + 1).join(fras);
 
     /* Texten börjar precis vid bildkanten och rullar en frasbredd åt
