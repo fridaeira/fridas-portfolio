@@ -384,6 +384,22 @@ h1, h2, h3 {
 }
 .tjanst__media--par img { aspect-ratio: 600 / 630; }
 
+/* Illustrationerna är frilagda, så de visas utan ram och hörn */
+.tjanst__media--illustration {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: clamp(1rem, 3vw, 2rem);
+}
+.tjanst__media--illustration img {
+  width: auto;
+  max-width: 48%;
+  height: clamp(200px, 24vw, 300px);
+  aspect-ratio: auto;
+  object-fit: contain;
+  border-radius: 0;
+}
+
 /* ---------------- Vidare ---------------- */
 
 .vidare {
